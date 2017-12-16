@@ -1,5 +1,6 @@
 package com.sda.narzedzia;
 
+import com.sda.model.Autor;
 import com.sda.model.Biblioteka;
 import com.sda.model.Ksiazka;
 import com.sda.model.Uzytkownik;
@@ -75,6 +76,8 @@ public class KopiaZapasowa {
       while(line != null){
         String[] pola = line.split(",");
         Ksiazka ksiazka = new Ksiazka();
+        Autor autor = new Autor();
+        ksiazka.setAutor(autor);
         for (String pole : pola){
           String[] nazwaWartosc = pole.split(":");
           switch (nazwaWartosc[0]){
@@ -83,6 +86,12 @@ public class KopiaZapasowa {
               break;
             case "tytul":
               ksiazka.setTytul(nazwaWartosc[1]);
+              break;
+            case "autor.imie":
+              autor.setImie(nazwaWartosc[1]);
+              break;
+            case "autor.nazwisko":
+              autor.setNazwisko(nazwaWartosc[1]);
               break;
           }
         }

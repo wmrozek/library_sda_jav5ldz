@@ -19,4 +19,8 @@ public class Autor {
   public void setNazwisko(String nazwisko) {
     this.nazwisko = nazwisko;
   }
+
+  @Override public String toString() {
+    return imie + " " + nazwisko;
+  }
 }

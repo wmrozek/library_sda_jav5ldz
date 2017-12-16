@@ -27,6 +27,18 @@ public class Biblioteka {
     this.uzytkownicy.add(uzytkownik);
   }
 
+  public boolean czyKsiazkaJestDostepna(Ksiazka ksiazka){
+    if (rejestrWypozyczen.isEmpty()){
+      return true;
+    }
+    for (WpisRejestru wpis : rejestrWypozyczen){
+      if (wpis.getKsiazka().equals(ksiazka) && wpis.getDataZwrotu() == null){
+        return false;
+      }
+    }
+    return true;
+  }
+
   public void odzyskajZKopii(List<Ksiazka> ksiazki, List<Uzytkownik> uzytkownicy, List<WpisRejestru> rejestrWypozyczen){
     this.ksiazki = ksiazki;
     this.uzytkownicy = uzytkownicy;
